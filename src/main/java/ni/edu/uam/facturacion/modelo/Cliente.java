@@ -2,9 +2,11 @@ package ni.edu.uam.facturacion.modelo;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.openxava.annotations.NoFrame;
 import org.openxava.annotations.Required;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -20,5 +22,7 @@ public class Cliente {
     @Column(length=50) // La longitud de columna se usa a nivel UI y a nivel DB
     @Required  // Se mostrará un error de validación si la propiedad nombre se deja en blanco
     String nombre;
+    @Embedded// Así para referenciar a una clase incrustable
+    Direccion direccion; // Una referencia Java convencional
 
 }
